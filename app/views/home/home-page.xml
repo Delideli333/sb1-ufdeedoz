@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Create Content">
+        <ActionItem text="Logout" tap="{{ logout }}" ios.position="right" />
+    </ActionBar>
+    <ScrollView>
+        <StackLayout class="home-panel">
+            <Button text="Take Photo" tap="{{ takePhoto }}" class="btn btn-primary" />
+            <Button text="Choose from Gallery" tap="{{ pickFromGallery }}" class="btn btn-primary" />
+            <TextField hint="Enter your prompt" text="{{ prompt }}" class="input" />
+            <Image src="{{ selectedImage }}" height="200" stretch="aspectFit" />
+            <Button text="Generate Content" tap="{{ generateContent }}" class="btn btn-primary" isEnabled="{{ !!selectedImage }}" />
+            <TextView text="{{ generatedCaption }}" editable="true" class="caption-preview" />
+            <Label text="{{ generatedHashtags }}" class="hashtags" textWrap="true" />
+            <Button text="Schedule Post" tap="{{ schedulePost }}" class="btn btn-primary" isEnabled="{{ !!generatedCaption }}" />
+        </StackLayout>
+    </ScrollView>
+</Page>
